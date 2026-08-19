@@ -173,8 +173,8 @@ window.SITE_CONFIG = {
 
   /* --- Sobre Dama -------------------------------------------------------- */
   about: {
-    avatar: 'assets/img/original/profile-150.jpg',
-    avatarAlt: 'Logotipo de Dama Nails Center con flores rosadas',
+    avatar: 'assets/img/dama.jpg',
+    avatarAlt: 'Damarlyn Reyes, fundadora de Dama Nails Center',
     paragraphs: [
       'Hola, soy Damarlyn — pero todo el mundo me dice Dama. Hago uñas porque me encanta ese momento en que una clienta se mira las manos y sonríe.',
       'Trabajo con calma y mucho detalle: me gusta que cada uña quede pareja, limpia y bien terminada. Sea una francesa sencilla o un diseño lleno de mariposas y pedrería, la idea es que salgas sintiéndote linda.',

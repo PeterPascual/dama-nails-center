@@ -25,7 +25,8 @@ of the above work.
 | `styles.css` | All styling and animation |
 | `assets/img/web/` | Web-sized photos (used in the lightbox) |
 | `assets/img/thumb/` | Thumbnails (used in the gallery grid) |
-| `assets/img/original/` | Full-res originals + `profile-150.jpg`. **Not used on the page** |
+| `assets/img/dama.jpg` | Dama's portrait (640×640 square crop) used in "Sobre Dama" — set in `config.js` → `about.avatar` |
+| `assets/img/original/` | Full-res originals (+ `profile-150.jpg`, `dama-portrait.jpg`). **Not used on the page** |
 | `assets/img/manifest.json` | Backup record of the photo metadata (not loaded by the site) |
 | `scripts/` | Scrape records + `VERIFY.md` browser checklist |
 | `.nojekyll` | Stops GitHub Pages running Jekyll (see below) |

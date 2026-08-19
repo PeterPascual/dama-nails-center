@@ -792,7 +792,7 @@
               <div className="avatar-wrap">
                 ${has(a.avatar) ? html`
                   <img className="avatar" src=${a.avatar} alt=${a.avatarAlt || ''}
-                    width="150" height="150" loading="lazy" decoding="async" />` : null}
+                    width="640" height="640" loading="lazy" decoding="async" />` : null}
                 <svg className="avatar-spark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path fill="currentColor" d=${SPARK_D}/>
                 </svg>
