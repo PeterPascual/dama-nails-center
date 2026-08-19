@@ -192,6 +192,13 @@ window.SITE_CONFIG = {
 
   /* --- Textos de la interfaz -------------------------------------------- */
   copy: {
+    // Cintita de aviso arriba del todo. Déjala en enabled:false para ocultarla.
+    announcement: {
+      enabled: true,
+      text: 'Cafecito incluido para nuestras clientas',
+      tail: '— ven, siéntate y relájate'
+    },
+
     nav: {
       links: [
         { href: '#servicios', label: 'Servicios' },
@@ -217,7 +224,7 @@ window.SITE_CONFIG = {
 
     marquee: [
       'Manicure clásico', 'Pedicure', 'Uñas acrílicas', 'Gel semipermanente',
-      'Francesas', 'Nail art', 'Pedrería', 'Retoque', 'Diseños a tu medida'
+      'Francesas', 'Nail art', 'Pedrería', 'Retoque', 'Diseños a tu medida', 'Cafecito incluido ☕'
     ],
 
     services: {

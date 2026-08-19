@@ -421,6 +421,69 @@ p { text-wrap: pretty; }
 .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
 .nav-toggle.is-open span:nth-child(3) { transform: translateY(-6.8px) rotate(-45deg); }
 
+/* Cintita de aviso (cafecito incluido) */
+.announce {
+  position: relative;
+  z-index: 101;
+  background: linear-gradient(90deg, var(--blush-2), var(--berry-tint) 50%, var(--blush-2));
+  border-bottom: 1px solid var(--line);
+  color: var(--berry-2);
+  animation: announceIn .7s var(--ease) both;
+  overflow: hidden;
+}
+.announce::after {                     /* brillo suave que cruza la cinta de vez en cuando */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,.55) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: announceShine 7s var(--ease) 2s infinite;
+  pointer-events: none;
+}
+.announce-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55em;
+  min-height: 38px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  font-size: .82rem;
+  line-height: 1.3;
+  text-align: center;
+}
+.announce-text strong { font-weight: 700; letter-spacing: .02em; }
+.announce-tail { color: var(--ink-2); font-weight: 500; }
+.announce-cup { display: inline-flex; color: var(--berry); transform: translateY(1px); }
+.announce-cup .steam { opacity: 0; animation: steam 2.6s ease-in-out infinite; }
+.announce-cup .steam-1 { animation-delay: 0s; }
+.announce-cup .steam-2 { animation-delay: .45s; }
+.announce-cup .steam-3 { animation-delay: .9s; }
+.announce-heart { display: inline-flex; color: var(--berry); animation: heartbeat 2.2s ease-in-out infinite; transform-origin: center; }
+@media (max-width: 480px) {
+  .announce-tail { display: none; }     /* en pantallas chicas, solo el mensaje principal */
+}
+@keyframes announceIn {
+  from { opacity: 0; transform: translateY(-100%); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes announceShine {
+  0%, 70% { transform: translateX(-120%); }
+  100%    { transform: translateX(120%); }
+}
+@keyframes steam {
+  0%   { opacity: 0; transform: translateY(2px); }
+  35%  { opacity: .9; }
+  100% { opacity: 0; transform: translateY(-3px); }
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14%      { transform: scale(1.25); }
+  28%      { transform: scale(1); }
+  42%      { transform: scale(1.18); }
+  56%      { transform: scale(1); }
+}
+
 /* Panel móvil */
 .nav-sheet {
   position: fixed;

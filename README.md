@@ -40,6 +40,14 @@ comments on the parts we do not know yet.
 **The important rule:** empty values hide their section instead of showing a placeholder.
 A visitor never sees "TODO" or "[address here]".
 
+### Announcement bar ("Cafecito incluido")
+
+The slim bar above the nav comes from `announcement` in `config.js`. Set `enabled: false` to hide it, or change `text` / `tail` (the tail is hidden on very small phones).
+
+```js
+announcement: { enabled: true, text: 'Cafecito incluido para nuestras clientas', tail: '— ven, siéntate y relájate' }
+```
+
 ### Address / city
 
 Currently empty, so the location card is hidden entirely.

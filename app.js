@@ -158,6 +158,19 @@
     spark: function () {
       return html`<path fill="currentColor" d=${SPARK_D}/>`;
     },
+    coffee: function () {
+      return html`<${React.Fragment}>
+        <path className="steam steam-1" d="M8.5 2.6c-.9 1 .9 1.9 0 3" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+        <path className="steam steam-2" d="M12 2c-.9 1 .9 1.9 0 3" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+        <path className="steam steam-3" d="M15.5 2.6c-.9 1 .9 1.9 0 3" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+        <path d="M4.5 9h13v5.2A5.3 5.3 0 0 1 12.2 19.5H9.8A5.3 5.3 0 0 1 4.5 14.2V9Z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>
+        <path d="M17.5 10.5h1.2a2.4 2.4 0 0 1 0 4.8h-1.2" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+        <path d="M5.5 21.5h11" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+      <//>`;
+    },
+    heart: function () {
+      return html`<path fill="currentColor" d="M12 20.6s-7.4-4.5-9.1-9.2C1.8 8.3 3.6 5.2 6.7 4.7c1.9-.3 3.7.6 5.3 2.3 1.6-1.7 3.4-2.6 5.3-2.3 3.1.5 4.9 3.6 3.8 6.7-1.7 4.7-9.1 9.2-9.1 9.2Z"/>`;
+    },
     close: function () {
       return html`<path d="M6.2 6.2 17.8 17.8M17.8 6.2 6.2 17.8" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>`;
     },
@@ -266,6 +279,21 @@
         <span className="brand-mark">${parts.first}</span>
         <span className="brand-rest">${parts.rest}</span>
       </a>`;
+  }
+
+  function Announcement() {
+    var a = C.announcement || {};
+    if (!a.enabled || !a.text) return null;
+    return html`
+      <div className="announce" role="note">
+        <div className="container announce-inner">
+          <span className="announce-cup" aria-hidden="true"><${Icon} name="coffee" size=${18} /></span>
+          <span className="announce-text">
+            <strong>${a.text}</strong>${a.tail ? html`<span className="announce-tail"> ${a.tail}</span>` : null}
+          </span>
+          <span className="announce-heart" aria-hidden="true"><${Icon} name="heart" size=${14} /></span>
+        </div>
+      </div>`;
   }
 
   function Nav() {
@@ -978,6 +1006,7 @@
   function App() {
     return html`
       <div className="page" id="top">
+        <${Announcement} />
         <${Nav} />
         <main id="contenido">
           <${Hero} />
