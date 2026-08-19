@@ -298,6 +298,25 @@
 
     var closeMenu = function () { setOpen(false); };
 
+    // Desde el panel móvil: cerrar primero (quita body.no-scroll) y luego
+    // desplazar. Si dejamos el salto de ancla por defecto, ocurre mientras el
+    // body aún tiene overflow:hidden y el navegador no se mueve.
+    var goTo = function (href) {
+      return function (e) {
+        if (!href || href.charAt(0) !== '#') { setOpen(false); return; }
+        e.preventDefault();
+        setOpen(false);
+        document.body.classList.remove('no-scroll');
+        window.requestAnimationFrame(function () {
+          window.requestAnimationFrame(function () {
+            var target = href === '#top' ? document.body : document.querySelector(href);
+            if (target) target.scrollIntoView({ behavior: REDUCE ? 'auto' : 'smooth', block: 'start' });
+            if (window.history && window.history.replaceState) window.history.replaceState(null, '', href);
+          });
+        });
+      };
+    };
+
     return html`
       <header className=${'nav' + (scrolled || open ? ' is-scrolled' : '')}>
         <div className="container nav-inner">
@@ -323,7 +342,7 @@
           </button>
         </div>
 
-        ${open ? html`
+        ${open ? ReactDOM.createPortal(html`
           <div className="nav-sheet" id="menu-movil">
             <ul>
               ${links.map(function (l, i) {
@@ -331,7 +350,7 @@
                   <li key=${l.href}>
                     <a className="nav-sheet-link" href=${l.href}
                       style=${{ '--d': (0.04 + i * 0.05) + 's' }}
-                      onClick=${closeMenu}>
+                      onClick=${goTo(l.href)}>
                       ${l.label}<span aria-hidden="true">✦</span>
                     </a>
                   </li>`;
@@ -340,7 +359,7 @@
             <a className="btn btn--block" href=${waLink()} target="_blank" rel="noopener noreferrer" onClick=${closeMenu}>
               <${Icon} name="whatsapp" size=${18} />${(C.hero || {}).ctaPrimary}
             </a>
-          </div>` : null}
+          </div>`, document.body) : null}
       </header>`;
   }
 
@@ -411,15 +430,15 @@
                 if (!p) return null;
                 return html`
                   <div key=${slot} className=${'cluster-tile tile-' + slot} style=${{ '--d': (0.2 + i * 0.13) + 's' }}>
-                    <img src=${p.web} alt=${p.alt} width=${p.width} height=${p.height}
-                      loading=${i === 0 ? 'eager' : 'lazy'} decoding="async" />
+                    <img src=${i === 0 ? p.web : p.thumb} alt=${p.alt} width=${p.width} height=${p.height}
+                      loading="eager" fetchpriority=${i === 0 ? 'high' : 'auto'} decoding="async" />
                   </div>`;
               })}
 
               ${accent ? html`
                 <div className="cluster-accent" style=${{ '--d': '0.6s' }}>
                   <img src=${accent.thumb} alt=${accent.alt} width=${accent.width} height=${accent.height}
-                    loading="lazy" decoding="async" />
+                    loading="eager" decoding="async" />
                 </div>` : null}
 
               <span className="cluster-badge">

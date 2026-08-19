@@ -458,7 +458,7 @@ p { text-wrap: pretty; }
 /* --------------------------------------------------------------------------
    7. Hero
    -------------------------------------------------------------------------- */
-.hero { position: relative; padding-top: clamp(2rem, 5vw, 3.5rem); padding-bottom: clamp(3rem, 7vw, 5rem); }
+.hero { position: relative; padding-top: clamp(2rem, 5vw, 3.5rem); padding-bottom: clamp(3rem, 7vw, 5rem); overflow-x: hidden; overflow-x: clip; }
 
 .hero-inner {
   display: grid;

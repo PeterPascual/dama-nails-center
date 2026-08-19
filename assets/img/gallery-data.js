@@ -26,7 +26,7 @@ window.GALLERY_DATA = [
     height: 1200,
     orientation: 'portrait',
     date: '2023-08-14',
-    caption: 'Trabajo hermoso dé hoy 😘🥰',
+    caption: 'Trabajo hermoso de hoy 😘🥰',
     alt: 'Uñas coffin largas en degradado rosa a blanco con flores blancas en relieve',
     tags: ['acrilicas', 'nail-art', 'pedrería'],
     featured: true
@@ -176,7 +176,7 @@ window.GALLERY_DATA = [
     height: 1200,
     orientation: 'portrait',
     date: '2023-08-14',
-    caption: 'Trabajo hermoso dé hoy 😘🥰',
+    caption: 'Trabajo hermoso de hoy 😘🥰',
     alt: 'Uñas largas rosa perlado con flores blancas 3D y un cristal en el centro',
     tags: ['acrilicas', 'nail-art', 'pedrería'],
     featured: false

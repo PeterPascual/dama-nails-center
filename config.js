@@ -275,7 +275,7 @@ window.SITE_CONFIG = {
       locationTitle: 'Ubicación',
       directions: 'Cómo llegar',
       hoursTitle: 'Horario',
-      hoursEmpty: 'Escríbenos por WhatsApp para disponibilidad',
+      hoursEmpty: 'Escríbeme por WhatsApp para ver disponibilidad',
       whatsappTitle: 'WhatsApp',
       whatsappAction: 'Escribir ahora',
       instagramTitle: 'Instagram',
@@ -289,7 +289,7 @@ window.SITE_CONFIG = {
     },
 
     floating: {
-      label: 'Escríbenos por WhatsApp'
+      label: 'Escríbeme por WhatsApp'
     }
   }
 };
