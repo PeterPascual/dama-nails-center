@@ -192,11 +192,11 @@ window.SITE_CONFIG = {
 
   /* --- Textos de la interfaz -------------------------------------------- */
   copy: {
-    // Cintita de aviso arriba del todo. Déjala en enabled:false para ocultarla.
+    // Stickercito en el hero (arriba del botón de WhatsApp). enabled:false lo oculta.
     announcement: {
       enabled: true,
-      text: 'Cafecito incluido para nuestras clientas',
-      tail: '— ven, siéntate y relájate'
+      text: 'Cafecito incluido',
+      tail: 'para nuestras clientas, con cariño'
     },
 
     nav: {

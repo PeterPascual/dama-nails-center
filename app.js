@@ -281,21 +281,6 @@
       </a>`;
   }
 
-  function Announcement() {
-    var a = C.announcement || {};
-    if (!a.enabled || !a.text) return null;
-    return html`
-      <div className="announce" role="note">
-        <div className="container announce-inner">
-          <span className="announce-cup" aria-hidden="true"><${Icon} name="coffee" size=${18} /></span>
-          <span className="announce-text">
-            <strong>${a.text}</strong>${a.tail ? html`<span className="announce-tail"> ${a.tail}</span>` : null}
-          </span>
-          <span className="announce-heart" aria-hidden="true"><${Icon} name="heart" size=${14} /></span>
-        </div>
-      </div>`;
-  }
-
   function Nav() {
     var state = useState(false); var open = state[0]; var setOpen = state[1];
     var s2 = useState(false); var scrolled = s2[0]; var setScrolled = s2[1];
@@ -394,6 +379,22 @@
   /* ------------------------------------------------------------------------
      Hero
      ---------------------------------------------------------------------- */
+  // Stickercito "cafecito incluido" en el hero (config.announcement).
+  function CoffeeBadge() {
+    var a = C.announcement || {};
+    if (!a.enabled || !a.text) return null;
+    return html`
+      <div className="coffee-badge" role="note">
+        <span className="coffee-badge-cup" aria-hidden="true"><${Icon} name="coffee" size=${22} /></span>
+        <span className="coffee-badge-text">
+          <strong>${a.text}</strong>
+          ${a.tail ? html`<span className="coffee-badge-tail">${a.tail}</span>` : null}
+        </span>
+        <span className="coffee-badge-heart" aria-hidden="true"><${Icon} name="heart" size=${13} /></span>
+        <span className="coffee-badge-spark" aria-hidden="true"><${Icon} name="spark" size=${12} /></span>
+      </div>`;
+  }
+
   function Hero() {
     var h = C.hero || {};
     var heroCfg = CFG.hero || {};
@@ -433,6 +434,8 @@
             </h1>
 
             <p className="hero-sub" data-anim style=${{ '--d': '0.42s' }}>${h.subline}</p>
+
+            <${CoffeeBadge} />
 
             <div className="hero-actions" data-anim style=${{ '--d': '0.52s' }}>
               <a className="btn btn--lg" href=${waLink()} target="_blank" rel="noopener noreferrer">
@@ -1006,7 +1009,6 @@
   function App() {
     return html`
       <div className="page" id="top">
-        <${Announcement} />
         <${Nav} />
         <main id="contenido">
           <${Hero} />

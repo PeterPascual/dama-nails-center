@@ -40,12 +40,12 @@ comments on the parts we do not know yet.
 **The important rule:** empty values hide their section instead of showing a placeholder.
 A visitor never sees "TODO" or "[address here]".
 
-### Announcement bar ("Cafecito incluido")
+### "Cafecito incluido" badge (hero)
 
-The slim bar above the nav comes from `announcement` in `config.js`. Set `enabled: false` to hide it, or change `text` / `tail` (the tail is hidden on very small phones).
+The tilted sticker above the WhatsApp button comes from `announcement` in `config.js`. Set `enabled: false` to hide it, or change `text` (big line) / `tail` (small line).
 
 ```js
-announcement: { enabled: true, text: 'Cafecito incluido para nuestras clientas', tail: '— ven, siéntate y relájate' }
+announcement: { enabled: true, text: 'Cafecito incluido', tail: 'para nuestras clientas, con cariño' }
 ```
 
 ### Address / city
