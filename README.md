@@ -56,7 +56,7 @@ Fill in any subset. The card appears as soon as one field has a value.
 
 ### Opening hours
 
-Currently `hours: []`, so the site shows *"Escríbenos por WhatsApp para disponibilidad"*.
+Currently `hours: []`, so the site shows *"Escríbeme por WhatsApp para ver disponibilidad"*.
 Add rows to replace that with a real schedule:
 
 ```js
